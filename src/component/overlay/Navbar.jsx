@@ -17,7 +17,8 @@ const Navbar = (props) => {
     >
       <div className="w-full flex  items-center mx-auto">
         <div
-          className="flex items-center justify-center  pl-12"
+          className="flex items-center justify-center cursor-pointer  pl-12"
+          onClick={() => onSectionChange(0)}
         >
           <img src={vador} alt="logo" className="w-12 h-12 object-contain" />
           <p className=" text-[20px] font-Jedi4 font-serif text-black">

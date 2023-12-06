@@ -7,7 +7,6 @@ import { Vador } from "./Vador";
 import { Environment , Lightformer  , useScroll , Sparkles } from "@react-three/drei";
 import {editable as e , PerspectiveCamera } from '@theatre/r3f';
 import { Darth } from "./Darth";
-import { Saber } from "./Saber";
 
 
 
@@ -38,13 +37,13 @@ const Scene =() =>{
   
       });
     
-console.log('HERERE', section);
+// console.log('HERERE', section);
   return (
     <>
     <motion.group scale={ScalingFactor}> 
   <motion.mesh
    animate={{
-    y : section === 0 ? 0 : viewport.height +2
+    y : section === 0 ? 0 : 10
   }}
   transition={{
     duration: 0.6,
@@ -55,16 +54,16 @@ console.log('HERERE', section);
   <motion.mesh
    animate={{
     y : section === 2 ? 0 : viewport.height + 0.5,
-    z: section === 2 ? 0 : 60
+    z: section === 2 ? 0 : -400,
   }}
   transition={{
     duration: 0.6,
   }}
   >
-    <Darth scale={0.038} position={[0, -4.5, 0]} />
+    <Darth scale={0.038} position={[-1, -4.5, 0]} />
   </motion.mesh>
     <hemisphereLight intensity={0.5} />
-    <Sparkles count={300} opacity={2}  scale={30} size={5} speed={0.4} color={"#3b0505"} />
+    <Sparkles count={200} opacity={2}  scale={30} size={5} speed={0.4} color={"#7b0303"} />
     <Environment resolution={512} >
         {/* Ceiling */}
         <Lightformer  intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} />
