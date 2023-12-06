@@ -48,7 +48,7 @@ function App() {
     <color attach="background" args={["#080808"]} />
     <ambientLight intensity={1} />
       {/* <fog color="#161616" attach="fog" near={8} far={30} /> */}
-      <ScrollControls pages={3} damping={0.8} maxSpeed={1} >
+      <ScrollControls pages={3} damping={1} maxSpeed={1} >
       <ScrollManager section={section} onSectionChange={setSection} />
 <Scene section={section} />
 <Scroll html>

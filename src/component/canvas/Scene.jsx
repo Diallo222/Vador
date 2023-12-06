@@ -63,7 +63,7 @@ const Scene =() =>{
     <Darth scale={0.038} position={[-1, -4.5, 0]} />
   </motion.mesh>
     <hemisphereLight intensity={0.5} />
-    <Sparkles count={200} opacity={2}  scale={30} size={5} speed={0.4} color={"#7b0303"} />
+    <Sparkles count={150} opacity={2}  scale={30} size={5} speed={0.4} color={"#7b0303"} />
     <Environment resolution={512} >
         {/* Ceiling */}
         <Lightformer  intensity={2} rotation-x={Math.PI / 2} position={[0, 4, -9]} scale={[10, 1, 1]} />
