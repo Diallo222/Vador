@@ -43,7 +43,7 @@ const Scene =() =>{
     <motion.group scale={ScalingFactor}> 
   <motion.mesh
    animate={{
-    y : section === 0 ? 0 : 10
+    y : section === 0 ? 0 : 60
   }}
   transition={{
     duration: 0.6,
