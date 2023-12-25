@@ -16,7 +16,7 @@ const Scene =() =>{
   const data = useScroll();
   const [section, setSection] = useState(0);
     const ScalingFactor = Math.min(
-        Math.max(window.innerWidth / 1300, 0.5),
+        Math.max(window.innerWidth / 1300, 0.8),
         1.2
       );
       const { viewport } = useThree();
@@ -49,7 +49,7 @@ const Scene =() =>{
     duration: 0.6,
   }}
   >
-    <Vador scale={0.008} position={[0, -1.3, 0]}/>
+    <Vador scale={0.0084} position={[0, -1.3, 0]}/>
   </motion.mesh>
   <motion.mesh
    animate={{
