@@ -7,7 +7,7 @@ const Armor = (props) => {
     <Section>
      <div className="flex h-full items-center md:items-start max-w-7xl justify-center flex-col ">
     <div className="">
-    <h1 className="text-5xl text-center md:text-left md:text-6xl md:pl-20 font-Jedi4 font-serif text-white drop-shadow-md">
+    <h1 className="text-5xl text-center md:text-left md:text-6xl md:pl-20 font-Jedi4 font-serif text-red-600 drop-shadow-md">
           Sith Master
         </h1>
       </div>

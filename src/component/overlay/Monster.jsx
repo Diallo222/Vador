@@ -6,7 +6,7 @@ const Monster = (props) => {
     <Section>
      <div className="flex h-full items-center  w-full mt-5 justify-center flex-col ">
     <div className="">
-    <h1 className="text-5xl text-center md:text-left md:text-6xl font-Jedi4 font-serif text-white drop-shadow-md">
+    <h1 className="text-5xl text-center md:text-left md:text-6xl font-Jedi4 font-serif text-red-600 drop-shadow-md">
     The Galactic Empire
         </h1>
       </div>

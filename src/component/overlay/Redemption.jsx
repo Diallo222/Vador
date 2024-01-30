@@ -7,7 +7,7 @@ const Redemption = (props) => {
     <Section mobileTop>
      <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col lg:flex-row md:gap-10 lg:gap-12">
     <div className="">
-        <h1 className="text-3xl text-center md:text-left md:text-5xl font-Jedi4 font-serif text-white">
+        <h1 className="text-3xl text-center md:text-left md:text-5xl font-Jedi4 font-serif text-red-600">
          Redemption
         </h1>
       </div>
