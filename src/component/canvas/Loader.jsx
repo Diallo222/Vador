@@ -1,23 +1,38 @@
-import { Html, useProgress } from "@react-three/drei";
+import { useProgress } from "@react-three/drei";
+import { useEffect } from "react";
 
-const Loader = () => {
-  const { progress } = useProgress();
+const Loader = (props) => {
+  const { started, setStarted } = props;
+  const { progress, total, loaded, item } = useProgress();
+
+  useEffect(() => {
+    console.log(progress, total, loaded, item);
+    if (progress === 100) {
+      setTimeout(() => {
+        setStarted(true);
+      }, 500);
+    }
+  }, [progress, total, loaded, item]);
+
   return (
-    <Html>
-      <span className="canvas-load">
-        <p
+    <div
+      className={`fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none
+  flex items-center justify-center bg-zinc-950
+  ${started ? "opacity-0" : "opacity-100"}`}
+    >
+      <div className="text-3xl md:text-5xl  font-Jedi4 text-red-600 relative">
+        <div
+          className="absolute left-0 top-0  overflow-hidden truncate text-clip transition-all duration-500"
           style={{
-            fontSize: 14,
-            color: "#f1f1f1",
-            fontWeight: 800,
-            marginTop: 40,
+            width: `${progress}%`,
           }}
         >
-          {progress.toFixed(2)}
-        </p>
-      </span>
-    </Html>
+         { "Dark Side"}
+        </div>
+        <div className="opacity-40">{"Dark Side"}</div>
+      </div>
+    </div>
   );
 };
 
-export default Loader;
+export default Loader

@@ -1,82 +1,50 @@
 import { Suspense , useState  } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
   ScrollControls,
-  useScroll,
-  Environment,
-  Lightformer,
-  OrbitControls,
   Scroll,
 } from "@react-three/drei";
-import { easing } from "maath";
-import { Scene } from "./component/canvas";
-import { Navbar, Overlay } from "./component/overlay";
-import { ScrollManager } from "./utils";
+import {
+  SheetProvider,
+} from "@theatre/r3f";
+import { getProject, val } from "@theatre/core";
+import { Loader, Scene } from "./component/canvas";
+import VadorState from "./Vador.json";
+import { Cursor, Overlay } from "./component/overlay";
 
 
 function App() {
   const [section, setSection] = useState(0);
   const [started, setStarted] = useState(false);
-  const [menuOpened, setMenuOpened] = useState(false);
+
+  const vadorSheet = getProject('Vador Project' , { state: VadorState }).sheet('Vador Sheet')
 
   return (
     <section className=" overscroll-none w-screen h-screen">
-    <Suspense
-       fallback={
-         <div className="flex flex-col h-screen w-screen justify-center items-center bg-black">
-           {/* <Lottie
-             animationData={wheelanimation}
-             style={{ height: "200px", width: "200px" }}
-           /> */}
-           <p className="text-white text-[16px] font-medium text-center">
-             Loading...
-           </p>
-         </div>
-       }
-     >
+      <Loader started={started} setStarted={setStarted} />
    <Canvas
-    colorManagement
-    camera={{ position: [0, 0, 15] , fov:30 }}
-    gl={{
-      powerPreference: "high-performance",
-      alpha: false,
-      antialias: false,
-      stencil: false,
-      depth: false
-    }}
+    shadows gl={{logarithmicDepthBuffer: true, antialias: false}}
    >
-    <color attach="background" args={["#080808"]} />
+    <color attach="background" args={["#030303"]} />
     <ambientLight intensity={1} />
-      {/* <fog color="#161616" attach="fog" near={8} far={30} /> */}
-      <ScrollControls pages={3} damping={1} maxSpeed={1} >
-      <ScrollManager section={section} onSectionChange={setSection} />
-<Scene section={section} />
-<Scroll html>
-            <Overlay />
-          </Scroll>
+      <fog color="#030303" attach="fog" near={8} far={50} />
+      <ScrollControls pages={8} damping={0.5} maxSpeed={1} >      
+      <SheetProvider sheet={vadorSheet}>
+      <Suspense>
+          {started && (
+          <Scene section={section} /> 
+          )}   
+      </Suspense>
+      </SheetProvider>
+      <Scroll html>
+        {started && <Overlay />}
+      </Scroll>
 </ScrollControls>
-<Rig />
-
    </Canvas>
- <Navbar 
- onSectionChange={setSection}
- menuOpened={menuOpened}
- setMenuOpened={setMenuOpened}
-/>
-</Suspense>
+   {/* <Cursor /> */}
  </section>
   )
-  function Rig() {
-    useFrame((state, delta) => {
-      easing.damp3(
-        state.camera.position,
-        [Math.sin(-state.pointer.x) * 5, state.pointer.y * 3.5, 15 + Math.cos(state.pointer.x) * 10],
-        0.2,
-        delta,
-      )
-      state.camera.lookAt(0, 0, 0)
-    })
-  }
+
 }
 
 export default App

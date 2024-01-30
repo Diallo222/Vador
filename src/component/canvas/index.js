@@ -1,10 +1,10 @@
-import { Vador } from "./Vador";
-import Loader from "./Loader";
+import { Vador } from "./Vador"
 import Scene from "./Scene";
 import { Darth } from "./Darth";
+import Loader from './Loader'
 export {
     Vador,
-    Loader,
     Scene,
     Darth,
+    Loader
 }

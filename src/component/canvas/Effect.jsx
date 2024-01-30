@@ -30,9 +30,9 @@ import {
 
   <ChromaticAberration
     blendFunction={BlendFunction.NORMAL} // blend mode
-    offset={[0.002, 0.001]} // color offset
+    offset={[0.001, 0.001]} // color offset
   />
-{/* <Vignette eskil={false} offset={0.01} darkness={0.8} /> */}
+<Vignette eskil={false} offset={0.01} darkness={0.8} />
 </EffectComposer>
 </>
     )
