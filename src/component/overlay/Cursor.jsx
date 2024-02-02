@@ -43,12 +43,13 @@ export const Cursor = () => {
       "mouseover",
       function (e) {
         if (
-          e.target.tagName.toLowerCase() === "button" ||
+          // e.target.tagName.toLowerCase() === "button" ||
           // check parent is button
-          e.target.parentElement.tagName.toLowerCase() === "button" ||
+          // e.target.parentElement.tagName.toLowerCase() === "button" ||
           // check is input or textarea
-          e.target.tagName.toLowerCase() === "input" ||
-          e.target.tagName.toLowerCase() === "textarea"
+          // e.target.tagName.toLowerCase() === "input" ||
+          // e.target.tagName.toLowerCase() === "textarea" ||
+          e.target.tagName.toLowerCase() === "h1"
         ) {
           setHoverButton(true);
         } else {
@@ -67,8 +68,8 @@ export const Cursor = () => {
         className={`invisible md:visible  z-50 fixed -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none transition-transform
         ${
           hoverButton
-            ? "bg-transparent border-2 border-zinc-900 w-5 h-5"
-            : "bg-red-800 w-3 h-3"
+            ? " bg-red-600 w-32 h-32  mix-blend-difference"
+            : "bg-red-600 w-3 h-3"
         }`}
         ref={cursorOutline}
       ></div>

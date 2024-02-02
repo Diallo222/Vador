@@ -41,7 +41,7 @@ function App() {
       </Scroll>
 </ScrollControls>
    </Canvas>
-   {/* <Cursor /> */}
+   <Cursor />
  </section>
   )
 

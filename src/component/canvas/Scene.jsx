@@ -36,14 +36,21 @@ const Scene =() =>{
     <motion.group scale={ScalingFactor}> 
     <e.spotLight theatreKey="SpotLight1" position={[0, 10, 16]} angle={0.3} penumbra={1} intensity={4} castShadow shadow-mapSize={2048} />
   <e.mesh theatreKey="Helmet" scale={0.007} position={[0, -1.3, -5]}>
-    <Vador receiveShadow castShadow />
+    
+      <Vador receiveShadow castShadow />
+
+    
   </e.mesh>
 <e.group theatreKey='battle'>
 <e.mesh theatreKey="Darth" scale={0.0142} rotation={[0,-1.600000000000001,0]} position={[1.4699999999999986, -1.5, -0.2499999999999913]}>
+<motion.mesh whileHover={{ rotateY: 0.7 }}>
   <Darth receiveShadow castShadow  />
+  </motion.mesh>
   </e.mesh>
   <e.mesh theatreKey="Anakin" scale={0.042} rotation={[0,1.6500000000000001,0]} position={[-1.3600000000000003, -1.47, 0.3799999999999998]}>
+  <motion.mesh whileHover={{ rotateY: -0.5 }}>
   <Anakin receiveShadow castShadow  />
+  </motion.mesh>
   </e.mesh>
 </e.group>
 

@@ -10,7 +10,7 @@ const Legacy = (props) => {
           Legacy
         </h1>
       </div>
-      <p className=" font-normal text-sm md:text-base text-white py-2 w-[250px] md:w-[500px]  md:pl-20 text-left tracking-wide">
+      <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[500px]  md:pl-20 text-justify">
       Darth Vader's legacy endures, symbolizing both the tyranny of the Empire and the potential for redemption, 
       leaving an indelible mark on the Star Wars saga. His iconic helmet and breathing apparatus continue to represent the complex journey from hero to villain to savior, 
       resonating through generations of fans.   

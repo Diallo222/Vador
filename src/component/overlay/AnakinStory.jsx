@@ -9,7 +9,7 @@ const AnakinStory = (props) => {
         Prodigious Jedi
         </h1>
       </div>
-      <p className=" font-normal text-sm md:text-base text-white py-2 md:pl-20 w-[250px] md:w-[600px] text-left tracking-wide">
+      <p className=" font-normal text-sm md:text-lg text-white py-2 md:pl-20 w-[250px] md:w-[600px] text-justify">
       Blessed with unparalleled piloting skills and a deep connection to the Force,
        embarked on a journey with the prophetic promise of bringing balance to the galaxy. 
        From the outset, his destiny seemed intertwined with the fate of the cosmos, 
