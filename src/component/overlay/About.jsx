@@ -19,12 +19,16 @@ const About = (props) => {
          Origins
         </h1>
       <div  className="flex flex-col lg:flex-row justify-center items-center md:gap-10 lg:gap-12">
-      <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-justify ">
+      <motion.p
+       initial={{ opacity: 0 }}
+       whileInView={{ opacity: 1 }}
+       transition={{ duration: 0.8 }}
+      className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-justify ">
         Darth Vader, originally named Anakin Skywalker,and Born to Shmi Skywalker, 
         he entered the galaxy without a known father, leading to rumors of a miraculous conception. 
         Growing up as a slave, Anakin displayed exceptional mechanical aptitude and podracing skills, 
         catching the attention of those around him.  
-        </p>
+        </motion.p>
        
         <div className="w-72 h-72 md:w-96 md:h-96">
         <img src={young} className="w-full h-full object-contain" />

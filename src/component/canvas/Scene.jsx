@@ -16,7 +16,7 @@ const Scene =() =>{
         Math.max(window.innerWidth / 1300, 0.8),
         1.2
       );
-      //my sheet
+      
       const sheet = useCurrentSheet();
       const scroll = useScroll();
       // our callback will run on every animation frame
