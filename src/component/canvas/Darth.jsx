@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-
+import { Color } from "three";
+const saberColor = new Color("#ff0404");
+saberColor.multiplyScalar(2);
 export function Darth(props) {
   const { nodes, materials } = useGLTF("/darth_vader_by_makeamo.glb");
   return (
@@ -45,8 +47,10 @@ export function Darth(props) {
         castShadow
         receiveShadow
         geometry={nodes.DARTH_Sabel_svart_0.geometry}
-        material={materials.Sabel_svart}
-      />
+        // material={materials.Sabel_svart}
+      >
+         <meshBasicMaterial color={saberColor} toneMapped={false} />
+      </mesh>
     </group>
   );
 }

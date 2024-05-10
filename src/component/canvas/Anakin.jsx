@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { Color } from "three";
 
+const saberColor = new Color("#0464ff");
+
+saberColor.multiplyScalar(2);
 export function Anakin(props) {
   const { nodes, materials } = useGLTF("/skywalker.glb");
   return (
@@ -17,8 +21,10 @@ export function Anakin(props) {
             castShadow
             receiveShadow
             geometry={nodes.rfl_clone_mesh_shadow002_1.geometry}
-            material={materials.light}
-          />
+            // material={materials.light}
+          >
+            <meshBasicMaterial color={saberColor} toneMapped={false} />
+          </mesh>
         </group>
         <mesh
           castShadow
