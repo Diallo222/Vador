@@ -6,11 +6,6 @@ import Section from "./Section";
 const About = (props) => {
   const { setSection } = props;
 
-  // const container = useRef();
-
-// useGSAP(() => {
-//     gsap.from(".box", {opacity: 0, stagger: 0.8});
-// }, { scope: container });
   return (
     <Section mobileTop>
      <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col  md:gap-2 lg:gap-4">
@@ -23,7 +18,7 @@ const About = (props) => {
        initial={{ opacity: 0 }}
        whileInView={{ opacity: 1 }}
        transition={{ duration: 0.8 }}
-      className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-justify ">
+      className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-left ">
         Darth Vader, originally named Anakin Skywalker,and Born to Shmi Skywalker, 
         he entered the galaxy without a known father, leading to rumors of a miraculous conception. 
         Growing up as a slave, Anakin displayed exceptional mechanical aptitude and podracing skills, 
