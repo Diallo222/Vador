@@ -20,28 +20,24 @@ const Loader = (props) => {
   ${started ? "opacity-0" : "opacity-100"}`}
     >
       <div className="text-3xl md:text-5xl  font-Jedi4 text-red-600 relative">
-        <div
-          className="absolute left-0 top-0  overflow-hidden truncate text-clip transition-all duration-500"
-          style={{
-            width: `${progress}%`,
-          }}
-        >
-         { "Dark Side"}
+        <div className=" overflow-hidden truncate text-clip transition-all duration-1000">
+          {"Dark Side"}
         </div>
-        <div className="opacity-40">{"Dark Side"}</div>
       </div>
-      <div className="relative">
+      <div className="relative w-80 h-2 bg-gray-800 rounded-md overflow-hidden mt-4 shadow-lg shadow-red-400">
+        {/* Glowing Progress */}
         <div
-          className="mt-6 h-1 bg-red-600 rounded-md  overflow-hidden truncate transition-all duration-500"
-          style={{ 
-            width :`${progress}%`
-          }}
+          className="h-full bg-red-600 rounded-md relative overflow-hidden transition-all duration-1000"
+          style={{ width: `${progress}%` }}
         >
+          {/* Outer Glow */}
+          <div className="absolute inset-0 rounded-md blur-sm bg-red-500 opacity-40"></div>
         </div>
-        <div className=" opacity-5 h-1 w-80 bg-slate-300 rounded-md"></div>
       </div>
+
+      <p className="text-sm md:text-lg  text-red-600 mt-4 uppercase">Loading ...</p>
     </div>
   );
 };
 
-export default Loader
+export default Loader;

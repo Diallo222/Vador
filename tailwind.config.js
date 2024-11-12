@@ -19,19 +19,8 @@ export default {
       screens: {
         xs: "450px",
       },
-      // backgroundImage: {
-      //   "hero-pattern": "url('/src/assets/herobg.png')",
-      // },
-      // fontFamily: {
-      //   'geek': "Geek",
-      //   'geek2': "Geek2",
-      //   'geek3': "Geek3"
-      // }
     },
     fontFamily: {
-      'Jedi': "Jedi",
-      'Jedi2': "Jedi2",
-      'Jedi3': "Jedi3",
       'Jedi4': "Jedi4",
     }
   },

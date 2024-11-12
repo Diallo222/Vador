@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Color } from "three";
 
-const saberColor = new Color("#0464ff");
+const saberColor = new Color("#0464ff").multiplyScalar(3);
 
 saberColor.multiplyScalar(2);
 export function Anakin(props) {

@@ -1,18 +1,17 @@
-import { Vector3 } from "three";
-import React, { Suspense, useRef, useState } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
-import { motion } from "framer-motion-3d";
-import Effects from "./Effect";
-import { Vador } from "./Vador";
-import { useScroll, Sparkles } from "@react-three/drei";
+import { Sparkles, useScroll } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { val } from "@theatre/core";
 import {
   editable as e,
   PerspectiveCamera,
   useCurrentSheet,
 } from "@theatre/r3f";
-import { val } from "@theatre/core";
-import { Darth } from "./Darth";
+import { motion } from "framer-motion-3d";
+import React from "react";
 import { Anakin } from "./Anakin";
+import { Darth } from "./Darth";
+import Effects from "./Effect";
+import { Vador } from "./Vador";
 
 const Scene = () => {
   const ScalingFactor = Math.min(Math.max(window.innerWidth / 1300, 0.8), 1.2);
@@ -42,9 +41,9 @@ const Scene = () => {
           penumbra={1}
           intensity={4}
           castShadow
-          shadow-mapSize={2048}
+          shadow-mapSize={1024}
           shadow-bias={-0.0005}
-          shadow-normalBias={0.05} // Helps prevent acne in some cases
+          // shadow-normalBias={0.05} // Helps prevent acne in some cases
         />
         <e.mesh theatreKey="Helmet" scale={0.007} position={[0, -1.3, -5]}>
           <Vador receiveShadow castShadow />

@@ -30,7 +30,7 @@ function App() {
         </ScrollControls>
       </Canvas>
       <Cursor />
-      <AudioControl />
+      <AudioControl started={started} />
     </section>
   );
 }

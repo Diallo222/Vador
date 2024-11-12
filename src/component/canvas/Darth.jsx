@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Color } from "three";
 const saberColor = new Color("#ff0404");
-saberColor.multiplyScalar(2);
+saberColor.multiplyScalar(3);
 export function Darth(props) {
   const { nodes, materials } = useGLTF("/darth_vader_by_makeamo.glb");
   return (
