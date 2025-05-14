@@ -56,8 +56,6 @@ button {
   transition: border-color 0.25s;
 }
 
-
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -75,4 +73,25 @@ button {
   font-family: "Jedi4";
   src: local("Moonhouse-yE5M"),
     url("./assets/fonts/Moonhouse-yE5M.ttf") format("truetype");
+}
+
+/* Scrollbar Vader Theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 5px;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #dc2626 #000000;
 }
