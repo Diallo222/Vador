@@ -1,7 +1,6 @@
 import Section from "./Section";
 
-const Monster = (props) => {
-  const { setSection } = props;
+const Monster = () => {
   return (
     <Section>
       <div className="flex h-full items-center  w-full mt-5 justify-center flex-col ">
@@ -12,7 +11,7 @@ const Monster = (props) => {
         </div>
         <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[800px] text-left">
           Darth Vader played a pivotal role in the rise of the oppressive
-          Galactic Empire, enforcing the Emperor's rule with an iron fist. His
+          Galactic Empire, enforcing the Emperor&apos;s rule with an iron fist. His
           imposing presence and mastery of the Force struck terror into the
           hearts of those who dared to oppose the Empire, solidifying his status
           as a formidable enforcer.

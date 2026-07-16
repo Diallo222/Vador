@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { styles } from "../../../styles";
-import { vador, menu } from "../../assets";
+import { vador } from "../../assets";
 
 const Navbar = (props) => {
-  const { onSectionChange, menuOpened, setMenuOpened, changeBg } = props;
-  const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const { onSectionChange, changeBg } = props;
 
   return (
     <nav
@@ -54,17 +51,6 @@ const Navbar = (props) => {
         </div> */}
       </div>
     </nav>
-  );
-};
-const MenuButton = (props) => {
-  const { label, onClick } = props;
-  return (
-    <button
-      onClick={onClick}
-      className="text-[13px] text-black font-bold cursor-pointer hover:text-indigo-600 active:border-none  bg-none"
-    >
-      {label}
-    </button>
   );
 };
 export default Navbar;

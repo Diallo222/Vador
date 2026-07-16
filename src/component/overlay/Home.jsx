@@ -1,7 +1,6 @@
 import Section from "./Section";
-import { motion } from "framer-motion";
 
-const Home = (props) => {
+const Home = () => {
 
   return (
     <Section mobileTop>

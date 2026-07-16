@@ -11,7 +11,7 @@ const Loader = (props) => {
         setStarted(true);
       }, 500);
     }
-  }, [progress, total, loaded, item]);
+  }, [progress, total, loaded, item, setStarted]);
 
   return (
     <div

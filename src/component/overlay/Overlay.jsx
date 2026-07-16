@@ -6,8 +6,7 @@ import QuiGon from "./QuiGon";
 import Monster from "./Monster";
 import Redemption from "./Redemption";
 import Legacy from "./Legacy";
-export const Overlay = (props) => {
-  const { setSection } = props;
+export const Overlay = () => {
   return (
     <>
     <Home />

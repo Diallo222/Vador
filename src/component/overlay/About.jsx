@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 import { young } from "../../assets";
 import Section from "./Section";
 
-const About = (props) => {
-  const { setSection } = props;
-
+const About = () => {
   return (
     <Section mobileTop>
       <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col  md:gap-2 lg:gap-4">

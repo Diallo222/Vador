@@ -1,13 +1,12 @@
 import { quigon } from "../../assets";
 import Section from "./Section";
 
-const QuiGon = (props) => {
-  const { setSection } = props;
+const QuiGon = () => {
   return (
     <Section mobileTop>
       <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col lg:flex-row md:gap-10 lg:gap-12">
         <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-left ">
-          Recognizing Anakin's potential, Jedi Master Qui-Gon Jinn discovered
+          Recognizing Anakin&apos;s potential, Jedi Master Qui-Gon Jinn discovered
           him during a mission on Tatooine. The Jedi sensed a strong connection
           to the Force within the young boy and believed him to be the Chosen
           One destined to bring balance.
