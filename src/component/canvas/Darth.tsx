@@ -1,6 +1,5 @@
 import { useGLTF } from "@react-three/drei";
 import type { ThreeElements } from "@react-three/fiber";
-import { useLayoutEffect } from "react";
 import { Color, type Mesh, type MeshStandardMaterial } from "three";
 import type { GLTF } from "three-stdlib";
 
