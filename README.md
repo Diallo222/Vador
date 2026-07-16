@@ -174,7 +174,7 @@ This is a **non-commercial fan / portfolio project** — not affiliated with or 
 
 ## License
 
-Private skill showcase unless otherwise stated. Code © Diallo — feel free to learn from it; please don’t rebrand it as an official Star Wars product.
+ © Diallo — feel free to learn from it or use this repo; please don’t rebrand it as an official Star Wars product.
 
 ---
 
