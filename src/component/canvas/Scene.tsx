@@ -1,4 +1,4 @@
-import { Sparkles, useScroll, Stars } from "@react-three/drei";
+import { ContactShadows, Sparkles, Stars, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { val } from "@theatre/core";
 import {
@@ -7,18 +7,27 @@ import {
   useCurrentSheet,
 } from "@theatre/r3f";
 import { motion } from "framer-motion-3d";
-import { useState } from "react";
-import type { Light, SpotLight } from "three";
+import { useRef, useState } from "react";
+import type { AmbientLight, Fog, Light, SpotLight } from "three";
 import { Color } from "three";
+import { useIsMobileScene, useSceneMood } from "../../hooks/useSceneMood";
 import { useResponsiveScale } from "../../hooks/useResponsiveScale";
 import { Anakin } from "./Anakin";
 import { Darth } from "./Darth";
 import Effects from "./Effect";
 import { Vador } from "./Vador";
 
+const VOID = "#050505";
+
 const Scene = () => {
   const [hovered, setHovered] = useState<Light | null>(null);
   const ScalingFactor = useResponsiveScale();
+  const mood = useSceneMood();
+  const isMobile = useIsMobileScene();
+  const fogRef = useRef<Fog>(null);
+  const ambientRef = useRef<AmbientLight>(null);
+  const targetAmbient = useRef(new Color(mood.ambient));
+  const targetFog = useRef(new Color(mood.fog));
 
   const sheet = useCurrentSheet();
   const scroll = useScroll();
@@ -31,14 +40,33 @@ const Scene = () => {
 
   useFrame(({ clock }) => {
     if (hovered) {
-      hovered.intensity = 4 + Math.sin(clock.getElapsedTime() * 4) * 0.5;
+      hovered.intensity = 2.2 + Math.sin(clock.getElapsedTime() * 4) * 0.35;
     }
   });
 
+  useFrame((_, delta) => {
+    const t = Math.min(1, delta * 2);
+    targetAmbient.current.set(mood.ambient);
+    targetFog.current.set(mood.fog);
+    if (ambientRef.current) {
+      ambientRef.current.color.lerp(targetAmbient.current, t);
+      ambientRef.current.intensity +=
+        (mood.ambientIntensity - ambientRef.current.intensity) * t;
+    }
+    if (fogRef.current) {
+      fogRef.current.color.lerp(targetFog.current, t);
+    }
+  });
+
+  const sparkleCount = isMobile
+    ? Math.min(40, Math.floor(mood.particleCount * 0.4))
+    : mood.particleCount;
+  const starCount = isMobile ? 1500 : 3500;
+
   return (
     <>
-      <color attach="background" args={["#050505"]} />
-      <fog attach="fog" args={["#000000", 10, 40]} />
+      <color attach="background" args={[VOID]} />
+      <fog ref={fogRef} attach="fog" args={[mood.fog, 12, 42]} />
 
       <PerspectiveCamera
         theatreKey="Camera"
@@ -47,7 +75,21 @@ const Scene = () => {
         fov={30}
       />
 
-      <ambientLight intensity={0.2} color="#331111" />
+      <ambientLight
+        ref={ambientRef}
+        intensity={mood.ambientIntensity}
+        color={mood.ambient}
+      />
+      <directionalLight
+        position={[-6, 4, -8]}
+        intensity={mood.rimIntensity}
+        color={mood.rim}
+      />
+      <directionalLight
+        position={[2, -4, 4]}
+        intensity={mood.fillIntensity}
+        color="#1a1010"
+      />
 
       <motion.group scale={ScalingFactor}>
         <e.spotLight
@@ -66,12 +108,12 @@ const Scene = () => {
           <Vador receiveShadow castShadow />
           <spotLight
             position={[0, 2, 1]}
-            intensity={2}
-            angle={0.5}
-            color="#ff0000"
-            castShadow
-            penumbra={0.8}
-            distance={10}
+            intensity={1.6}
+            angle={0.45}
+            color="#b11226"
+            castShadow={false}
+            penumbra={0.85}
+            distance={8}
             onPointerOver={(event) => {
               event.stopPropagation();
               setHovered(event.object as SpotLight);
@@ -111,28 +153,45 @@ const Scene = () => {
         </e.group>
 
         <Sparkles
-          count={300}
-          opacity={1}
-          scale={20}
-          size={5}
-          speed={0.4}
-          color={"#ff0000"}
+          key={mood.id}
+          count={sparkleCount}
+          opacity={0.55}
+          scale={18}
+          size={isMobile ? 3 : 4}
+          speed={0.25}
+          color={mood.particle}
         />
 
-        <Stars radius={100} depth={50} count={5000} factor={4} fade speed={1} />
+        <Stars
+          radius={100}
+          depth={50}
+          count={starCount}
+          factor={3}
+          fade
+          speed={0.6}
+        />
 
         <mesh receiveShadow position={[0, -1.5, 0]} rotation-x={-Math.PI / 2}>
-          <planeGeometry args={[100, 100]} />
+          <planeGeometry args={[80, 80]} />
           <meshStandardMaterial
-            attach="material"
-            color="#000000"
-            roughness={0.7}
-            metalness={0.2}
-            emissive={new Color("#330000")}
-            emissiveIntensity={0.2}
+            color="#050505"
+            roughness={0.92}
+            metalness={0.05}
+            emissive="#1a0505"
+            emissiveIntensity={0.08}
           />
         </mesh>
+
+        <ContactShadows
+          position={[0, -1.49, 0]}
+          opacity={0.55}
+          scale={28}
+          blur={2.4}
+          far={8}
+          color="#000000"
+        />
       </motion.group>
+
       <Effects />
     </>
   );

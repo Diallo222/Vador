@@ -1,5 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import type { ThreeElements } from "@react-three/fiber";
+import { useLayoutEffect } from "react";
 import { Color, type Mesh, type MeshStandardMaterial } from "three";
 import type { GLTF } from "three-stdlib";
 
@@ -25,13 +26,14 @@ type GLTFResult = GLTF & {
 
 type GroupProps = ThreeElements["group"];
 
-const saberColor = new Color("#ff0404");
-saberColor.multiplyScalar(3);
+/** Crimson blade — bloom-friendly, not neon-washed */
+const saberColor = new Color("#b11226").multiplyScalar(4.5);
 
 export function Darth(props: GroupProps) {
   const { nodes, materials } = useGLTF(
-    "/darth_vader_by_makeamo.glb"
+    "/darth_vader_by_makeamo.glb",
   ) as GLTFResult;
+
   return (
     <group {...props} dispose={null}>
       <mesh
