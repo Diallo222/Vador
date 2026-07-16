@@ -31,6 +31,7 @@ const alignClass = {
 
 /**
  * Full-viewport story beat with scroll-windowed opacity / translate.
+ * First section (`index === 0`) stays fully visible from load — no enter fade.
  */
 const Section = ({
   children,
@@ -40,8 +41,9 @@ const Section = ({
   className = "",
   wide = false,
 }: SectionProps) => {
-  const local = useMotionValue(0);
+  const local = useMotionValue(index === 0 ? 0 : -0.2);
   const reduced = useMemo(() => prefersReducedMotion(), []);
+  const isHero = index === 0;
 
   useEffect(() => {
     const sync = () => local.set(getSectionLocalProgress(index, TOTAL_PAGES));
@@ -49,12 +51,18 @@ const Section = ({
     return subscribeStoryScroll(sync);
   }, [index, local]);
 
+  // Hero: fully visible at scroll start; only fades on exit.
+  // Other chapters: fade in → hold → fade out within their window.
   const opacity = useTransform(
     local,
-    [-0.2, 0.08, 0.72, 1.05],
-    [0, 1, 1, 0]
+    isHero ? [0, 0.65, 0.95, 1.1] : [-0.2, 0.08, 0.72, 1.05],
+    isHero ? [1, 1, 0.35, 0] : [0, 1, 1, 0]
   );
-  const y = useTransform(local, [-0.2, 0.08, 0.72, 1.05], [40, 0, 0, -24]);
+  const y = useTransform(
+    local,
+    isHero ? [0, 0.65, 0.95, 1.1] : [-0.2, 0.08, 0.72, 1.05],
+    isHero ? [0, 0, -12, -28] : [40, 0, 0, -24]
+  );
 
   const column = wide
     ? "max-w-5xl lg:max-w-6xl"
