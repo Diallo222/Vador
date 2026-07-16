@@ -74,7 +74,7 @@ export function SplitLines({
             y: baseY,
             transitionDelay: `${i * delayPerLine}s`,
           }}
-          className="font-body font-semibold text-sm md:text-lg text-bone leading-relaxed max-w-md text-balance"
+          className="font-body font-semibold text-sm md:text-lg text-bone leading-relaxed max-w-lg text-balance"
         >
           {line}
         </motion.p>

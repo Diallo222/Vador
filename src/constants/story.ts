@@ -38,8 +38,9 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     title: "Origins",
     kicker: "Tatooine",
     lines: [
-      "Born without a father. Raised in chains.",
+      "Born without a father. Raised in chains on Tatooine.",
       "A slave boy with a gift for machines — and a storm gathering behind his eyes.",
+      "Whispers called his birth a miracle. The desert only called him property.",
     ],
     image: {
       src: young,
@@ -58,6 +59,7 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     lines: [
       "A Jedi Master finds him in the dust of Tatooine.",
       "In the boy, he senses the Force — and a destiny the Order cannot ignore.",
+      "Qui-Gon sees what the Council fears: the Chosen One, raw and unbound.",
     ],
     quote: "The Chosen One",
     image: {
@@ -77,6 +79,7 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     lines: [
       "Pilot. Warrior. Prodigy.",
       "His connection to the Force was unmatched — and his fate already written in whispers of balance.",
+      "Trained as a Jedi, he soared above every trial — yet attachment coiled quietly beneath the armor of duty.",
     ],
     accent: "sky",
     align: "left",
@@ -90,7 +93,8 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     kicker: "The fall",
     lines: [
       "Fear of loss. Anger without end.",
-      "Palpatine's shadow closes. The Chosen One kneels — and rises as Darth Vader.",
+      "Visions of Padmé dying drive him into Palpatine's open hand.",
+      "The Chosen One kneels — and rises as Darth Vader, bound in black.",
     ],
     accent: "ember",
     align: "left",
@@ -105,6 +109,7 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     lines: [
       "Iron will. Black armor. A breath that silences rooms.",
       "He becomes the fist of the Emperor — terror given form.",
+      "Rebels whisper his name like a curse. Worlds fall quieter when his shuttle descends.",
     ],
     accent: "ember",
     align: "center",
@@ -117,7 +122,8 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     title: "Redemption",
     kicker: "A father's choice",
     lines: [
-      "To save his son, he turns on the Emperor.",
+      "Luke stands before him — not as enemy, but as son.",
+      "To save him, Vader turns on the Emperor.",
       "In one selfless act, the prophecy is fulfilled — and the dark side loses its greatest servant.",
     ],
     image: {
@@ -137,6 +143,7 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     lines: [
       "Tyrant. Father. Redeemed.",
       "The helmet endures — a symbol of how far one can fall, and how far one can return.",
+      "His breath still echoes through the saga: a warning, a tragedy, and a hope that even the darkest path can turn.",
     ],
     accent: "bone",
     align: "center",
