@@ -2,6 +2,9 @@ import { Howl } from "howler";
 
 import breathSound from "/Darth.mp3";
 
+export { STORY_CHAPTERS, TOTAL_STORY_PAGES } from "./story";
+export type { StoryAccent, StoryChapter } from "./story";
+
 export const sounds = {
   background: new Howl({
     src: [breathSound],

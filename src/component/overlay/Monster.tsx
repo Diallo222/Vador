@@ -1,21 +1,33 @@
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { SplitLines } from "./ui/SplitLines";
+
+const chapter = STORY_CHAPTERS[5];
 
 const Monster = () => {
   return (
-    <Section>
-      <div className="flex h-full items-center  w-full mt-5 justify-center flex-col ">
-        <div className="">
-          <h1 className="text-5xl text-center md:text-left md:text-6xl font-Jedi4 font-serif text-red-600 drop-shadow-md">
-            The Galactic Empire
-          </h1>
-        </div>
-        <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[800px] text-left">
-          Darth Vader played a pivotal role in the rise of the oppressive
-          Galactic Empire, enforcing the Emperor&apos;s rule with an iron fist. His
-          imposing presence and mastery of the Force struck terror into the
-          hearts of those who dared to oppose the Empire, solidifying his status
-          as a formidable enforcer.
-        </p>
+    <Section index={5} align="center" wide>
+      <ChapterLabel
+        code={chapter.code}
+        kicker={chapter.kicker}
+        accent={chapter.accent}
+        className="justify-center"
+      />
+      <h2
+        data-cursor="expand"
+        className={`mt-6 font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] ${ACCENT_TEXT[chapter.accent]}`}
+      >
+        The
+        <br />
+        Empire
+      </h2>
+      <div className="mt-8 mx-auto max-w-lg">
+        <SplitLines
+          lines={chapter.lines}
+          sectionIndex={5}
+          className="[&_p]:text-center [&_p]:mx-auto"
+        />
       </div>
     </Section>
   );

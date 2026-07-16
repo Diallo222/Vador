@@ -1,21 +1,50 @@
-import { quigon } from "../../assets";
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { CinematicFrame, Hairline, QuoteMark } from "./ui/CinematicFrame";
+import { SplitLines } from "./ui/SplitLines";
+
+const chapter = STORY_CHAPTERS[2];
 
 const QuiGon = () => {
   return (
-    <Section mobileTop>
-      <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col lg:flex-row md:gap-10 lg:gap-12">
-        <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-left ">
-          Recognizing Anakin&apos;s potential, Jedi Master Qui-Gon Jinn discovered
-          him during a mission on Tatooine. The Jedi sensed a strong connection
-          to the Force within the young boy and believed him to be the Chosen
-          One destined to bring balance.
-        </p>
-        <div className="w-72 h-72 md:w-96 md:h-96">
-          <img
-            src={quigon}
-            alt="Qui-Gon Jinn"
-            className="w-full h-full object-contain"
+    <Section index={2} align="right" mobileTop wide>
+      <div className="flex flex-col-reverse lg:flex-row lg:items-center gap-8 lg:gap-14">
+        {chapter.image ? (
+          <CinematicFrame
+            src={chapter.image.src}
+            alt={chapter.image.alt}
+            accent={chapter.accent}
+            sectionIndex={2}
+            className="shrink-0 self-center lg:self-auto"
+          />
+        ) : null}
+        <div className="flex-1 min-w-0 lg:text-right">
+          <ChapterLabel
+            code={chapter.code}
+            kicker={chapter.kicker}
+            accent={chapter.accent}
+            className="lg:justify-end"
+          />
+          <h2
+            data-cursor="expand"
+            className={`mt-3 font-display text-4xl md:text-5xl ${ACCENT_TEXT[chapter.accent]}`}
+          >
+            {chapter.title}
+          </h2>
+          {chapter.quote ? (
+            <div className="mt-5 lg:flex lg:justify-end">
+              <QuoteMark accent={chapter.accent}>{chapter.quote}</QuoteMark>
+            </div>
+          ) : null}
+          <Hairline
+            accent={chapter.accent}
+            className="mt-4 mb-5 lg:ml-auto"
+          />
+          <SplitLines
+            lines={chapter.lines}
+            sectionIndex={2}
+            className="lg:ml-auto lg:[&_p]:ml-auto"
           />
         </div>
       </div>

@@ -1,22 +1,37 @@
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { Hairline } from "./ui/CinematicFrame";
+import { SplitLines } from "./ui/SplitLines";
+
+const chapter = STORY_CHAPTERS[7];
 
 const Legacy = () => {
   return (
-    <Section>
-      <div className="flex h-full items-center md:items-start max-w-7xl justify-center flex-col ">
-        <div className="">
-          <h1 className="text-5xl text-center md:text-left md:text-6xl md:pl-20 font-Jedi4 font-serif text-red-600 drop-shadow-md">
-            Legacy
-          </h1>
-        </div>
-        <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[500px]  md:pl-20 text-left">
-          Darth Vader&apos;s legacy endures, symbolizing both the tyranny of the
-          Empire and the potential for redemption, leaving an indelible mark on
-          the Star Wars saga. His iconic helmet and breathing apparatus continue
-          to represent the complex journey from hero to villain to savior,
-          resonating through generations of fans.
-        </p>
+    <Section index={7} align="center" wide>
+      <ChapterLabel
+        code={chapter.code}
+        kicker={chapter.kicker}
+        accent={chapter.accent}
+        className="justify-center"
+      />
+      <h2
+        data-cursor="expand"
+        className={`mt-6 font-display text-5xl md:text-6xl lg:text-7xl ${ACCENT_TEXT[chapter.accent]}`}
+      >
+        {chapter.title}
+      </h2>
+      <Hairline accent={chapter.accent} className="mx-auto mt-6 mb-8" />
+      <div className="max-w-md mx-auto">
+        <SplitLines
+          lines={chapter.lines}
+          sectionIndex={7}
+          className="[&_p]:text-center [&_p]:mx-auto"
+        />
       </div>
+      <p className="mt-12 font-mono text-[10px] tracking-imperial text-steel-dim uppercase">
+        End of transmission
+      </p>
     </Section>
   );
 };

@@ -1,21 +1,31 @@
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { Hairline } from "./ui/CinematicFrame";
+import { SplitLines } from "./ui/SplitLines";
+
+const chapter = STORY_CHAPTERS[4];
 
 const Armor = () => {
   return (
-    <Section>
-      <div className="flex h-full items-center md:items-start max-w-7xl justify-center flex-col ">
-        <div className="">
-          <h1 className="text-5xl text-center md:text-left md:text-7xl md:pl-20 font-Jedi4 font-serif text-red-600 drop-shadow-md">
-            Sith Master
-          </h1>
-        </div>
-        <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[500px]  md:pl-20 text-left ">
-          Seduced by fear and anger, Anakin succumbed to the dark side, becoming
-          Darth Vader under the influence of Emperor Palpatine. His fall marked
-          a tragic shift from the Chosen One to a Sith Lord, driven by a
-          desperate quest for power and a fear of loss.
-        </p>
+    <Section index={4} align="left">
+      <ChapterLabel
+        code={chapter.code}
+        kicker={chapter.kicker}
+        accent={chapter.accent}
+      />
+      <h2
+        data-cursor="expand"
+        className={`mt-3 font-display text-4xl md:text-6xl ${ACCENT_TEXT[chapter.accent]}`}
+      >
+        {chapter.title}
+      </h2>
+      {/* Fracture hairline — visual metaphor for the fall */}
+      <div className="relative mt-5 mb-6 w-40 md:w-56 h-px">
+        <Hairline accent={chapter.accent} className="w-full" />
+        <span className="absolute top-0 left-[42%] w-8 h-px bg-crimson-ember rotate-12 origin-left" />
       </div>
+      <SplitLines lines={chapter.lines} sectionIndex={4} />
     </Section>
   );
 };

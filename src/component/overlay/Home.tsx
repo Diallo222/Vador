@@ -1,21 +1,30 @@
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { ScrollCue } from "./ui/CinematicFrame";
+
+const chapter = STORY_CHAPTERS[0];
 
 const Home = () => {
   return (
-    <Section mobileTop>
-      <div className="flex w-full h-full items-center ">
-        <div className="self-center">
-          <h1 className="text-5xl text-center md:text-left md:text-6xl md:pl-20 font-Jedi4 font-serif text-red-600 drop-shadow-md box">
-            Darth Vader
-          </h1>
-          <p className="font-Jedi4 text-white text-2xl md:pl-20 py-2 drop-shadow-sm">
-            welcome to the dark side
-          </p>
-          <p className="font-Jedi4 text-red-600 text-2xl md:pl-20 py-2 drop-shadow-sm">
-            Scroll Down
-          </p>
-        </div>
-      </div>
+    <Section index={0} align="left" mobileTop>
+      <ChapterLabel
+        code={chapter.code}
+        kicker="Prologue"
+        accent={chapter.accent}
+      />
+      <h1
+        data-cursor="expand"
+        className={`mt-4 font-Jedi4 text-5xl sm:text-6xl md:text-7xl lg:text-8xl ${ACCENT_TEXT[chapter.accent]} leading-[0.95]`}
+      >
+        {chapter.title}
+      </h1>
+      {chapter.kicker ? (
+        <p className="mt-4 font-display text-base md:text-xl text-bone/80 tracking-wide">
+          {chapter.kicker}
+        </p>
+      ) : null}
+      <ScrollCue />
     </Section>
   );
 };

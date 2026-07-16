@@ -1,42 +1,39 @@
-import { motion } from "framer-motion";
-
-import { young } from "../../assets";
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { CinematicFrame, Hairline } from "./ui/CinematicFrame";
+import { SplitLines } from "./ui/SplitLines";
+
+const chapter = STORY_CHAPTERS[1];
 
 const About = () => {
   return (
-    <Section mobileTop>
-      <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col  md:gap-2 lg:gap-4">
-        <h1 className="text-5xl text-center md:text-left md:text-7xl font-Jedi4 font-serif text-red-600 drop-shadow-md">
-          Origins
-        </h1>
-        <div className="flex flex-col lg:flex-row justify-center items-center md:gap-10 lg:gap-12">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-left "
+    <Section index={1} align="left" mobileTop wide>
+      <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-14">
+        <div className="flex-1 min-w-0">
+          <ChapterLabel
+            code={chapter.code}
+            kicker={chapter.kicker}
+            accent={chapter.accent}
+          />
+          <h2
+            data-cursor="expand"
+            className={`mt-3 font-display text-4xl md:text-5xl lg:text-6xl ${ACCENT_TEXT[chapter.accent]}`}
           >
-            Darth Vader, originally named Anakin Skywalker, was born to Shmi
-            Skywalker without a known father, leading to rumors of a miraculous
-            conception. Growing up as a slave on Tatooine, Anakin displayed
-            exceptional mechanical aptitude and podracing skills, catching the
-            attention of those around him.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-72 h-72 md:w-96 md:h-96"
-          >
-            <img
-              src={young}
-              alt="Young Anakin Skywalker"
-              className="w-full h-full object-contain drop-shadow-lg"
-            />
-          </motion.div>
+            {chapter.title}
+          </h2>
+          <Hairline accent={chapter.accent} className="mt-4 mb-5" />
+          <SplitLines lines={chapter.lines} sectionIndex={1} />
         </div>
+        {chapter.image ? (
+          <CinematicFrame
+            src={chapter.image.src}
+            alt={chapter.image.alt}
+            accent={chapter.accent}
+            sectionIndex={1}
+            className="shrink-0 self-center lg:self-auto"
+          />
+        ) : null}
       </div>
     </Section>
   );

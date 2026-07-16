@@ -1,30 +1,39 @@
-import { redemption } from "../../assets";
+import { STORY_CHAPTERS } from "../../constants/story";
 import Section from "./Section";
+import { ChapterLabel, ACCENT_TEXT } from "./ui/ChapterLabel";
+import { CinematicFrame, Hairline } from "./ui/CinematicFrame";
+import { SplitLines } from "./ui/SplitLines";
+
+const chapter = STORY_CHAPTERS[6];
 
 const Redemption = () => {
   return (
-    <Section mobileTop>
-      <div className="flex self-center h-full items-center max-w-7xl justify-center flex-col  md:gap-2 lg:gap-4">
-        <h1 className="text-3xl text-center md:text-left md:text-7xl font-Jedi4 font-serif text-red-600">
-          Redemption
-        </h1>
-
-        <div className="flex flex-col lg:flex-row justify-center items-center md:gap-10 lg:gap-12">
-          <p className=" font-normal text-sm md:text-lg text-white py-2 w-[250px] md:w-[400px] text-left">
-            In a final act of redemption, Vader turned against the Emperor to
-            save his son, Luke, sacrificing himself to destroy the Sith and
-            bring balance to the Force. His selfless choice in the face of
-            darkness highlighted the enduring spark of good within, ultimately
-            fulfilling the prophecy of the Chosen One.
-          </p>
-          <div className="w-72 h-72 md:w-96 md:h-96">
-            <img
-              src={redemption}
-              alt="Darth Vader redemption"
-              className="w-full h-full object-contain"
-            />
-          </div>
+    <Section index={6} align="left" mobileTop wide>
+      <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-14">
+        <div className="flex-1 min-w-0">
+          <ChapterLabel
+            code={chapter.code}
+            kicker={chapter.kicker}
+            accent={chapter.accent}
+          />
+          <h2
+            data-cursor="expand"
+            className={`mt-3 font-display text-4xl md:text-5xl lg:text-6xl ${ACCENT_TEXT[chapter.accent]}`}
+          >
+            {chapter.title}
+          </h2>
+          <Hairline accent={chapter.accent} className="mt-4 mb-5" />
+          <SplitLines lines={chapter.lines} sectionIndex={6} />
         </div>
+        {chapter.image ? (
+          <CinematicFrame
+            src={chapter.image.src}
+            alt={chapter.image.alt}
+            accent={chapter.accent}
+            sectionIndex={6}
+            className="shrink-0 self-center lg:self-auto"
+          />
+        ) : null}
       </div>
     </Section>
   );
