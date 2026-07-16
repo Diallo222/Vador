@@ -44,6 +44,7 @@ const Section = ({
   const local = useMotionValue(index === 0 ? 0 : -0.2);
   const reduced = useMemo(() => prefersReducedMotion(), []);
   const isHero = index === 0;
+  const isFinale = index === TOTAL_PAGES - 1;
 
   useEffect(() => {
     const sync = () => local.set(getSectionLocalProgress(index, TOTAL_PAGES));
@@ -52,17 +53,28 @@ const Section = ({
   }, [index, local]);
 
   // Hero: fully visible at scroll start; only fades on exit.
-  // Other chapters: fade in → hold → fade out within their window.
-  const opacity = useTransform(
-    local,
-    isHero ? [0, 0.65, 0.95, 1.1] : [-0.2, 0.08, 0.72, 1.05],
-    isHero ? [1, 1, 0.35, 0] : [0, 1, 1, 0]
-  );
-  const y = useTransform(
-    local,
-    isHero ? [0, 0.65, 0.95, 1.1] : [-0.2, 0.08, 0.72, 1.05],
-    isHero ? [0, 0, -12, -28] : [40, 0, 0, -24]
-  );
+  // Finale: fade in, then hold through the end (no early exit fade).
+  // Mid chapters: fade in → hold → fade out within their window.
+  const opacityRange = isHero
+    ? ([0, 0.65, 0.95, 1.1] as const)
+    : isFinale
+      ? ([-0.25, 0.05, 1, 1.2] as const)
+      : ([-0.2, 0.08, 0.72, 1.05] as const);
+
+  const opacityValues = isHero
+    ? ([1, 1, 0.35, 0] as const)
+    : isFinale
+      ? ([0, 1, 1, 1] as const)
+      : ([0, 1, 1, 0] as const);
+
+  const yValues = isHero
+    ? ([0, 0, -12, -28] as const)
+    : isFinale
+      ? ([32, 0, 0, 0] as const)
+      : ([40, 0, 0, -24] as const);
+
+  const opacity = useTransform(local, [...opacityRange], [...opacityValues]);
+  const y = useTransform(local, [...opacityRange], [...yValues]);
 
   const column = wide
     ? "max-w-5xl lg:max-w-6xl"
