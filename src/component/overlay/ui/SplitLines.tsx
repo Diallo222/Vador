@@ -55,7 +55,7 @@ export function SplitLines({
         {lines.map((line) => (
           <p
             key={line}
-            className="font-body text-sm md:text-lg text-bone/90 leading-relaxed"
+            className="font-body font-semibold text-sm md:text-lg text-bone leading-relaxed"
           >
             {line}
           </p>
@@ -74,7 +74,7 @@ export function SplitLines({
             y: baseY,
             transitionDelay: `${i * delayPerLine}s`,
           }}
-          className="font-body text-sm md:text-lg text-bone/90 leading-relaxed max-w-md text-balance"
+          className="font-body font-semibold text-sm md:text-lg text-bone leading-relaxed max-w-md text-balance"
         >
           {line}
         </motion.p>
