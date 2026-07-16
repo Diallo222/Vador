@@ -1,11 +1,9 @@
 import {
   Sparkles,
   useScroll,
-  Environment,
-  Float,
   Stars,
 } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { val } from "@theatre/core";
 import {
   editable as e,
@@ -13,7 +11,7 @@ import {
   useCurrentSheet,
 } from "@theatre/r3f";
 import { motion } from "framer-motion-3d";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Anakin } from "./Anakin";
 import { Darth } from "./Darth";
 import Effects from "./Effect";
@@ -22,7 +20,6 @@ import { Color } from "three";
 
 const Scene = () => {
   const [hovered, setHovered] = useState(null);
-  const { viewport } = useThree();
 
   // Responsive scaling based on both width and device type
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

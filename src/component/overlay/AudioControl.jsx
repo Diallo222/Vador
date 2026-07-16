@@ -40,7 +40,7 @@ const AudioControl = ({ started }) => {
         sounds.background
           .play()
           .then(() => setIsAudioPlaying(true))
-          .catch((error) => {
+          .catch(() => {
             console.log("Autoplay blocked, waiting for user interaction");
             setIsAudioPlaying(false);
           });

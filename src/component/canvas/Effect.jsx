@@ -1,14 +1,10 @@
 import {
   EffectComposer,
-  DepthOfField,
   Bloom,
-  Noise,
   Vignette,
-  Glitch,
-  DotScreen,
   ChromaticAberration,
 } from "@react-three/postprocessing";
-import { GlitchMode, BlendFunction } from "postprocessing";
+import { BlendFunction } from "postprocessing";
 
 const Effects = () => {
   return (

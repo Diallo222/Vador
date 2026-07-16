@@ -1,6 +1,6 @@
 import Section from "./Section";
 
-const AnakinStory = (props) => {
+const AnakinStory = () => {
   return (
     <Section>
       <div className="flex h-full items-center md:items-start max-w-7xl justify-center flex-col ">

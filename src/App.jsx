@@ -1,14 +1,14 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { ScrollControls, Scroll } from "@react-three/drei";
 import { SheetProvider } from "@theatre/r3f";
-import { getProject, val } from "@theatre/core";
+import { getProject } from "@theatre/core";
 import { Loader, Scene } from "./component/canvas";
 import VadorState from "./Vador.json";
 import { AudioControl, Cursor, Overlay } from "./component/overlay";
 
 function App() {
-  const [section, setSection] = useState(0);
+  const [section] = useState(0);
   const [started, setStarted] = useState(false);
 
   const vadorSheet = getProject("Vador Project", { state: VadorState }).sheet(

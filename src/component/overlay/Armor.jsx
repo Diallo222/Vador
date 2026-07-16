@@ -1,7 +1,6 @@
 import Section from "./Section";
 
-const Armor = (props) => {
-  const { setSection } = props;
+const Armor = () => {
   return (
     <Section>
       <div className="flex h-full items-center md:items-start max-w-7xl justify-center flex-col ">
