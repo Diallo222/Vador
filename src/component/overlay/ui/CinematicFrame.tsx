@@ -57,22 +57,21 @@ export function CinematicFrame({
   return (
     <motion.div
       style={reduced ? undefined : { clipPath: clip, opacity }}
-      className={`relative w-56 h-64 sm:w-72 sm:h-80 md:w-80 md:h-96 ${className}`}
+      className={`relative w-56 sm:w-72 md:w-80 lg:w-96 ${className}`}
     >
       <Corner className="top-0 left-0 border-t border-l" />
       <Corner className="top-0 right-0 border-t border-r" />
       <Corner className="bottom-0 left-0 border-b border-l" />
       <Corner className="bottom-0 right-0 border-b border-r" />
       <div
-        className={`absolute inset-3 border ${ACCENT_BORDER[accent]}/30 overflow-hidden`}
+        className={`relative m-3 border ${ACCENT_BORDER[accent]}/30 bg-void-elevated/40`}
       >
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover object-center opacity-90"
+          className="block w-full h-auto max-h-[50vh] md:max-h-[55vh] object-contain object-center"
           draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-void/60 via-transparent to-transparent" />
       </div>
     </motion.div>
   );
