@@ -1,4 +1,12 @@
-import { young, quigon, redemption } from "../assets";
+/** Official Star Wars stills via Disney Lumiere CDN (starwars.com). */
+export const STORY_IMAGES = {
+  origins:
+    "https://lumiere-a.akamaihd.net/v1/images/vergence-main_eb0065a4.jpeg",
+  discovery:
+    "https://lumiere-a.akamaihd.net/v1/images/Qui-Gon-Jinn_d89416e8.jpeg",
+  redemption:
+    "https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-r9hjy6_e810fdca.jpeg",
+} as const;
 
 export type StoryAccent = "crimson" | "sky" | "ember" | "bone";
 
@@ -43,8 +51,8 @@ export const STORY_CHAPTERS: StoryChapter[] = [
       "Whispers called his birth a miracle. The desert only called him property.",
     ],
     image: {
-      src: young,
-      alt: "Young Anakin Skywalker",
+      src: STORY_IMAGES.origins,
+      alt: "Young Anakin Skywalker before the Jedi Council",
     },
     accent: "crimson",
     align: "left",
@@ -63,8 +71,8 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     ],
     quote: "The Chosen One",
     image: {
-      src: quigon,
-      alt: "Qui-Gon Jinn",
+      src: STORY_IMAGES.discovery,
+      alt: "Jedi Master Qui-Gon Jinn",
     },
     accent: "sky",
     align: "right",
@@ -127,8 +135,8 @@ export const STORY_CHAPTERS: StoryChapter[] = [
       "In one selfless act, the prophecy is fulfilled — and the dark side loses its greatest servant.",
     ],
     image: {
-      src: redemption,
-      alt: "Darth Vader's redemption",
+      src: STORY_IMAGES.redemption,
+      alt: "Anakin Skywalker unmasked — redeemed",
     },
     accent: "bone",
     align: "left",

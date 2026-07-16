@@ -71,6 +71,9 @@ export function CinematicFrame({
           alt={alt}
           className="block w-full h-auto max-h-[50vh] md:max-h-[55vh] object-contain object-center"
           draggable={false}
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       </div>
     </motion.div>
