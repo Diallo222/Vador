@@ -1,8 +1,4 @@
-import {
-  Sparkles,
-  useScroll,
-  Stars,
-} from "@react-three/drei";
+import { Sparkles, useScroll, Stars } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { val } from "@theatre/core";
 import {
@@ -12,34 +8,27 @@ import {
 } from "@theatre/r3f";
 import { motion } from "framer-motion-3d";
 import { useState } from "react";
+import type { Light, SpotLight } from "three";
+import { Color } from "three";
+import { useResponsiveScale } from "../../hooks/useResponsiveScale";
 import { Anakin } from "./Anakin";
 import { Darth } from "./Darth";
 import Effects from "./Effect";
 import { Vador } from "./Vador";
-import { Color } from "three";
 
 const Scene = () => {
-  const [hovered, setHovered] = useState(null);
-
-  // Responsive scaling based on both width and device type
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const ScalingFactor = Math.min(
-    Math.max(window.innerWidth / 1300, isMobile ? 0.6 : 0.8),
-    isMobile ? 1.0 : 1.2
-  );
+  const [hovered, setHovered] = useState<Light | null>(null);
+  const ScalingFactor = useResponsiveScale();
 
   const sheet = useCurrentSheet();
   const scroll = useScroll();
 
-  // our callback will run on every animation frame
   useFrame(() => {
-    // the length of our sequence
+    if (!sheet) return;
     const sequenceLength = val(sheet.sequence.pointer.length);
-    // update the "position" of the playhead in the sequence, as a fraction of its whole length
     sheet.sequence.position = scroll.offset * sequenceLength;
   });
 
-  // Pulse effect for hovered items
   useFrame(({ clock }) => {
     if (hovered) {
       hovered.intensity = 4 + Math.sin(clock.getElapsedTime() * 4) * 0.5;
@@ -58,7 +47,6 @@ const Scene = () => {
         fov={30}
       />
 
-      {/* <Environment preset="night" /> */}
       <ambientLight intensity={0.2} color="#331111" />
 
       <motion.group scale={ScalingFactor}>
@@ -72,10 +60,8 @@ const Scene = () => {
           shadow-mapSize={[2048, 2048]}
           shadow-bias={-0.0005}
           color="#ffaaaa"
-          // shadow-normalBias={0.05} // Helps prevent acne in some cases
         />
 
-        {/* <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.3}> */}
         <e.mesh theatreKey="Helmet" scale={0.007} position={[0, -1.3, -5]}>
           <Vador receiveShadow castShadow />
           <spotLight
@@ -86,14 +72,13 @@ const Scene = () => {
             castShadow
             penumbra={0.8}
             distance={10}
-            onPointerOver={(e) => {
-              e.stopPropagation();
-              setHovered(e.object);
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              setHovered(event.object as SpotLight);
             }}
             onPointerOut={() => setHovered(null)}
           />
         </e.mesh>
-        {/* </Float> */}
 
         <e.group theatreKey="battle">
           <e.mesh
@@ -136,7 +121,6 @@ const Scene = () => {
 
         <Stars radius={100} depth={50} count={5000} factor={4} fade speed={1} />
 
-        {/* Enhanced floor with better material */}
         <mesh receiveShadow position={[0, -1.5, 0]} rotation-x={-Math.PI / 2}>
           <planeGeometry args={[100, 100]} />
           <meshStandardMaterial

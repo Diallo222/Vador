@@ -1,7 +1,6 @@
 import Section from "./Section";
 
 const Home = () => {
-
   return (
     <Section mobileTop>
       <div className="flex w-full h-full items-center ">

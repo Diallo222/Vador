@@ -9,6 +9,6 @@ export const sounds = {
     volume: 0.4,
     preload: true,
     onload: () => console.log("Audio file loaded successfully"),
-    onloaderror: (id, error) => console.error("Error loading audio:", error),
+    onloaderror: (_id, error) => console.error("Error loading audio:", error),
   }),
 };

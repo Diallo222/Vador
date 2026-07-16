@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 
-const Section = (props) => {
-  const { children, mobileTop } = props;
+interface SectionProps {
+  children: ReactNode;
+  mobileTop?: boolean;
+}
 
+const Section = ({ children, mobileTop }: SectionProps) => {
   return (
     <motion.section
       className={`

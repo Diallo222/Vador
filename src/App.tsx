@@ -7,13 +7,12 @@ import { Loader, Scene } from "./component/canvas";
 import VadorState from "./Vador.json";
 import { AudioControl, Cursor, Overlay } from "./component/overlay";
 
-function App() {
-  const [section] = useState(0);
-  const [started, setStarted] = useState(false);
+const vadorSheet = getProject("Vador Project", {
+  state: VadorState,
+}).sheet("Vador Sheet");
 
-  const vadorSheet = getProject("Vador Project", { state: VadorState }).sheet(
-    "Vador Sheet"
-  );
+function App() {
+  const [started, setStarted] = useState(false);
 
   return (
     <section className=" overscroll-none w-screen h-screen">
@@ -24,7 +23,7 @@ function App() {
         <fog color="#030303" attach="fog" near={8} far={50} />
         <ScrollControls pages={8} damping={0.5} maxSpeed={1}>
           <SheetProvider sheet={vadorSheet}>
-            <Suspense>{started && <Scene section={section} />}</Suspense>
+            <Suspense>{started && <Scene />}</Suspense>
           </SheetProvider>
           <Scroll html>{started && <Overlay />}</Scroll>
         </ScrollControls>

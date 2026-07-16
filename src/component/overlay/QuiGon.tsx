@@ -12,7 +12,11 @@ const QuiGon = () => {
           One destined to bring balance.
         </p>
         <div className="w-72 h-72 md:w-96 md:h-96">
-          <img src={quigon} className="w-full h-full object-contain" />
+          <img
+            src={quigon}
+            alt="Qui-Gon Jinn"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
     </Section>

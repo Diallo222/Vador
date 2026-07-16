@@ -18,7 +18,11 @@ const Redemption = () => {
             fulfilling the prophecy of the Chosen One.
           </p>
           <div className="w-72 h-72 md:w-96 md:h-96">
-            <img src={redemption} className="w-full h-full object-contain" />
+            <img
+              src={redemption}
+              alt="Darth Vader redemption"
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
       </div>

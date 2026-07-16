@@ -1,9 +1,37 @@
 import { useGLTF } from "@react-three/drei";
-import { Color } from "three";
+import type { ThreeElements } from "@react-three/fiber";
+import { Color, type Mesh, type MeshStandardMaterial } from "three";
+import type { GLTF } from "three-stdlib";
+
+type GLTFResult = GLTF & {
+  nodes: {
+    DARTH_Sabel_vit_0: Mesh;
+    DARTH_darthvader_VaderConsolesFlickermat_0: Mesh;
+    DARTH_darthvader_VaderCapemat_0: Mesh;
+    DARTH_darthvader_VaderHelmetRimmat_0: Mesh;
+    DARTH_darthvader_VaderBodyArmourmat_0: Mesh;
+    DARTH_Laser_0: Mesh;
+    DARTH_Sabel_svart_0: Mesh;
+  };
+  materials: {
+    Sabel_vit: MeshStandardMaterial;
+    darthvader_VaderConsolesFlickermat: MeshStandardMaterial;
+    darthvader_VaderCapemat: MeshStandardMaterial;
+    darthvader_VaderHelmetRimmat: MeshStandardMaterial;
+    darthvader_VaderBodyArmourmat: MeshStandardMaterial;
+    Laser: MeshStandardMaterial;
+  };
+};
+
+type GroupProps = ThreeElements["group"];
+
 const saberColor = new Color("#ff0404");
 saberColor.multiplyScalar(3);
-export function Darth(props) {
-  const { nodes, materials } = useGLTF("/darth_vader_by_makeamo.glb");
+
+export function Darth(props: GroupProps) {
+  const { nodes, materials } = useGLTF(
+    "/darth_vader_by_makeamo.glb"
+  ) as GLTFResult;
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -46,9 +74,8 @@ export function Darth(props) {
         castShadow
         receiveShadow
         geometry={nodes.DARTH_Sabel_svart_0.geometry}
-        // material={materials.Sabel_svart}
       >
-         <meshBasicMaterial color={saberColor} toneMapped={false} />
+        <meshBasicMaterial color={saberColor} toneMapped={false} />
       </mesh>
     </group>
   );

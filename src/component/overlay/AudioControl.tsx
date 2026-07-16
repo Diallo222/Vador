@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { sounds } from "../../constants";
 
-const AudioControl = ({ started }) => {
+interface AudioControlProps {
+  started: boolean;
+}
+
+const AudioControl = ({ started }: AudioControlProps) => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
 
@@ -10,14 +14,12 @@ const AudioControl = ({ started }) => {
     setIsAudioPlaying((prev) => !prev);
   };
 
-  // Handle audio playback based on interaction and playing state
   useEffect(() => {
     if (!hasUserInteracted) return;
 
     const handlePlayback = async () => {
       if (isAudioPlaying) {
         if (!sounds.background.playing()) {
-          // Resume from current position if paused
           await sounds.background.play();
         }
       } else {
@@ -25,20 +27,21 @@ const AudioControl = ({ started }) => {
       }
     };
 
-    handlePlayback().catch((error) => {
+    handlePlayback().catch((error: unknown) => {
       console.error("Audio playback error:", error);
       setIsAudioPlaying(false);
     });
 
-    return () => sounds.background.pause();
+    return () => {
+      sounds.background.pause();
+    };
   }, [isAudioPlaying, hasUserInteracted]);
 
-  // Initial playback attempt with user interaction fallback
   useEffect(() => {
     const attemptPlay = () => {
       if (started && !hasUserInteracted) {
-        sounds.background
-          .play()
+        const playResult = sounds.background.play();
+        Promise.resolve(playResult)
           .then(() => setIsAudioPlaying(true))
           .catch(() => {
             console.log("Autoplay blocked, waiting for user interaction");

@@ -32,6 +32,7 @@ const About = () => {
           >
             <img
               src={young}
+              alt="Young Anakin Skywalker"
               className="w-full h-full object-contain drop-shadow-lg"
             />
           </motion.div>

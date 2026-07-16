@@ -1,17 +1,25 @@
 import { useProgress } from "@react-three/drei";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-const Loader = (props) => {
-  const { started, setStarted } = props;
-  const { progress, total, loaded, item } = useProgress();
+interface LoaderProps {
+  started: boolean;
+  setStarted: (started: boolean) => void;
+}
+
+const Loader = ({ started, setStarted }: LoaderProps) => {
+  const { progress } = useProgress();
+  const hasStarted = useRef(false);
 
   useEffect(() => {
-    if (progress === 100) {
-      setTimeout(() => {
-        setStarted(true);
-      }, 500);
-    }
-  }, [progress, total, loaded, item, setStarted]);
+    if (progress !== 100 || hasStarted.current) return;
+
+    const timer = setTimeout(() => {
+      hasStarted.current = true;
+      setStarted(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [progress, setStarted]);
 
   return (
     <div
@@ -25,17 +33,17 @@ const Loader = (props) => {
         </div>
       </div>
       <div className="relative w-80 h-2 bg-gray-800 rounded-md overflow-hidden mt-4 shadow-lg shadow-red-400">
-        {/* Glowing Progress */}
         <div
           className="h-full bg-red-600 rounded-md relative overflow-hidden transition-all duration-1000"
           style={{ width: `${progress}%` }}
         >
-          {/* Outer Glow */}
-          <div className="absolute inset-0 rounded-md blur-sm bg-red-500 opacity-40"></div>
+          <div className="absolute inset-0 rounded-md blur-sm bg-red-500 opacity-40" />
         </div>
       </div>
 
-      <p className="text-sm md:text-lg  text-red-600 mt-4 uppercase">Loading ...</p>
+      <p className="text-sm md:text-lg  text-red-600 mt-4 uppercase">
+        Loading ...
+      </p>
     </div>
   );
 };

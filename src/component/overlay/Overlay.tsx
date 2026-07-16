@@ -6,18 +6,18 @@ import QuiGon from "./QuiGon";
 import Monster from "./Monster";
 import Redemption from "./Redemption";
 import Legacy from "./Legacy";
+
 export const Overlay = () => {
   return (
     <>
-    <Home />
-    <About />
-    <QuiGon />
-    <AnakinStory />
-    <Armor />
-    <Monster />
-    <Redemption />
-    <Legacy />
-    
+      <Home />
+      <About />
+      <QuiGon />
+      <AnakinStory />
+      <Armor />
+      <Monster />
+      <Redemption />
+      <Legacy />
     </>
   );
 };
