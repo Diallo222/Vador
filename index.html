@@ -2,22 +2,99 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/src/assets/vador.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050505" />
+    <title>VADER — Anatomy of a Fall</title>
     <meta
       name="description"
-      content="VADER — Anatomy of a Fall. A scroll-driven WebGL tragedy in seven acts: the rise, fall and redemption of Anakin Skywalker."
+      content="A scroll-driven WebGL tragedy in seven acts: the rise, fall, and redemption of Anakin Skywalker, told through one object, the mask."
     />
-    <title>VADER — Anatomy of a Fall</title>
+    <meta name="author" content="Diallo" />
+    <meta name="application-name" content="VADER" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://vador-rho.vercel.app/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="VADER" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://vador-rho.vercel.app/" />
+    <meta property="og:title" content="VADER — Anatomy of a Fall" />
+    <meta
+      property="og:description"
+      content="A scroll-driven WebGL tragedy in seven acts: the rise, fall, and redemption of Anakin Skywalker, told through one object, the mask."
+    />
+    <meta
+      property="og:image"
+      content="https://lumiere-a.akamaihd.net/v1/images/death-star-ii-main_92554cb4.jpeg?width=1200"
+    />
+    <meta property="og:image:alt" content="The Death Star, from the story of Darth Vader" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VADER — Anatomy of a Fall" />
+    <meta
+      name="twitter:description"
+      content="A scroll-driven WebGL tragedy in seven acts: the rise, fall, and redemption of Anakin Skywalker, told through one object, the mask."
+    />
+    <meta
+      name="twitter:image"
+      content="https://lumiere-a.akamaihd.net/v1/images/death-star-ii-main_92554cb4.jpeg?width=1200"
+    />
+    <meta name="twitter:image:alt" content="The Death Star, from the story of Darth Vader" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://vador-rho.vercel.app/#website",
+            "url": "https://vador-rho.vercel.app/",
+            "name": "VADER — Anatomy of a Fall",
+            "description": "A scroll-driven WebGL tragedy in seven acts: the rise, fall, and redemption of Anakin Skywalker, told through one object, the mask.",
+            "inLanguage": "en",
+            "author": {
+              "@type": "Person",
+              "name": "Diallo",
+              "url": "https://github.com/Diallo222"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "VADER — Anatomy of a Fall",
+            "url": "https://vador-rho.vercel.app/",
+            "genre": "Interactive WebGL narrative",
+            "isAccessibleForFree": true,
+            "inLanguage": "en",
+            "creator": {
+              "@type": "Person",
+              "name": "Diallo",
+              "url": "https://github.com/Diallo222"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
+    <noscript>
+      <main>
+        <h1>VADER — Anatomy of a Fall</h1>
+        <p>
+          A scroll-driven WebGL tragedy in seven acts: the rise, fall, and redemption of Anakin
+          Skywalker, told through one object, the mask.
+        </p>
+        <p>JavaScript is required to enter the archive.</p>
+      </main>
+    </noscript>
     <div id="root"></div>
     <div id="hotspot-layer" style="position:fixed;inset:0;z-index:20;pointer-events:none"></div>
     <script type="module" src="/src/main.tsx"></script>

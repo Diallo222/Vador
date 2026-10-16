@@ -16,6 +16,7 @@ import { Fall } from "./sections/Fall";
 import { Empire } from "./sections/Empire";
 import { Redemption } from "./sections/Redemption";
 import { Legacy } from "./sections/Legacy";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function App() {
       <ActTransition />
       <Preloader />
       <Cursor />
+      <Analytics />
       <div className="grain" aria-hidden />
 
       {/* Shared SVG filter for the holo-warp image hover */}

@@ -1,0 +1,18 @@
+{
+  "name": "VADER — Anatomy of a Fall",
+  "short_name": "VADER",
+  "description": "A scroll-driven WebGL tragedy in seven acts: the rise, fall, and redemption of Anakin Skywalker.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
