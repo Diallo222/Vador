@@ -267,22 +267,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^0.8.2":
-  version: 0.8.8
-  resolution: "@emotion/is-prop-valid@npm:0.8.8"
-  dependencies:
-    "@emotion/memoize": "npm:0.7.4"
-  checksum: 10c0/f6be625f067c7fa56a12a4edaf090715616dc4fc7803c87212831f38c969350107b9709b1be54100e53153b18d9fa068eb4bf4f9ac66a37a8edf1bac9b64e279
-  languageName: node
-  linkType: hard
-
-"@emotion/memoize@npm:0.7.4":
-  version: 0.7.4
-  resolution: "@emotion/memoize@npm:0.7.4"
-  checksum: 10c0/b2376548fc147b43afd1ff005a80a1a025bd7eb4fb759fdb23e96e5ff290ee8ba16628a332848d600fb91c3cdc319eee5395fa33d8875e5d5a8c4ce18cddc18e
-  languageName: node
-  linkType: hard
-
 "@esbuild/aix-ppc64@npm:0.21.5":
   version: 0.21.5
   resolution: "@esbuild/aix-ppc64@npm:0.21.5"
@@ -501,6 +485,16 @@ __metadata:
   version: 8.57.1
   resolution: "@eslint/js@npm:8.57.1"
   checksum: 10c0/b489c474a3b5b54381c62e82b3f7f65f4b8a5eaaed126546520bf2fede5532a8ed53212919fed1e9048dcf7f37167c8561d58d0ba4492a4244004e7793805223
+  languageName: node
+  linkType: hard
+
+"@gsap/react@npm:2.1.2":
+  version: 2.1.2
+  resolution: "@gsap/react@npm:2.1.2"
+  peerDependencies:
+    gsap: ^3.12.5
+    react: ">=17"
+  checksum: 10c0/d0285391cfd7cef8125e6ddf81a063121bdb92ddf633d76c6144d8b93e3b7f7d837ec75f1fda8fd33d7efac0ad4c1aad89647e81446e9363012ada7db9f67daf
   languageName: node
   linkType: hard
 
@@ -998,49 +992,6 @@ __metadata:
   version: 4.25.0
   resolution: "@rollup/rollup-win32-x64-msvc@npm:4.25.0"
   conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@theatre/core@npm:^0.7.2":
-  version: 0.7.2
-  resolution: "@theatre/core@npm:0.7.2"
-  dependencies:
-    "@theatre/dataverse": "npm:0.7.2"
-  checksum: 10c0/a592e1b75d778c1c981fb40239fd6cfff598accedb31e7b9f4f1c70e7a3b1336b309bb4c06edcf5873ccb20ca405c01b3c7336f0f0a2e35535a09fdb1c3b8637
-  languageName: node
-  linkType: hard
-
-"@theatre/dataverse@npm:0.7.2":
-  version: 0.7.2
-  resolution: "@theatre/dataverse@npm:0.7.2"
-  dependencies:
-    lodash-es: "npm:^4.17.21"
-  checksum: 10c0/c56015715a3877ed899ef9c0308b126604716a9a31d4732bb6d09d9fd4a29eed88805aae7c5f1303af8526c70e61d7184f5bc25bb59b2d5e5df6a2a4db4ffafe
-  languageName: node
-  linkType: hard
-
-"@theatre/r3f@npm:^0.7.2":
-  version: 0.7.2
-  resolution: "@theatre/r3f@npm:0.7.2"
-  peerDependencies:
-    "@react-three/fiber": ^8.13.6
-    "@theatre/core": "*"
-    "@theatre/studio": "*"
-    react: ">=17.0.2"
-    react-dom: ">=17.0.2"
-    three: ">=0.155.0"
-  checksum: 10c0/05c3e81b46bf51c86be83b9db42286ad71de72fc61874b10b910dcc19aa0aec91a7b3e36bcbda0e9e81554d93199e026222a66fe1a9700a671f5ef8723c6ee43
-  languageName: node
-  linkType: hard
-
-"@theatre/studio@npm:^0.7.2":
-  version: 0.7.2
-  resolution: "@theatre/studio@npm:0.7.2"
-  dependencies:
-    "@theatre/dataverse": "npm:0.7.2"
-  peerDependencies:
-    "@theatre/core": "*"
-  checksum: 10c0/03125ff8d28becf588a886ecba660d3f237a0e39a48a76afd62cb5a08bb70f9d2dee8803d3d4304935c158c6b15a9acf7a02d562e2fff44d8d096d385ba07c05
   languageName: node
   linkType: hard
 
@@ -2911,42 +2862,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion-3d@npm:^10.18.0":
-  version: 10.18.0
-  resolution: "framer-motion-3d@npm:10.18.0"
-  dependencies:
-    framer-motion: "npm:^10.18.0"
-    react-merge-refs: "npm:^2.0.1"
-  peerDependencies:
-    "@react-three/fiber": ^8.2.2
-    react: ">=18.0"
-    react-dom: ">=18.0"
-    three: ">=0.133"
-  checksum: 10c0/d17eebec3bac649560de9831bc78b974874307c1669834fe05904409b5837e65f36f3705cd3db330b4370efb743514785667fb7f6d1a41335de243a9f2035214
-  languageName: node
-  linkType: hard
-
-"framer-motion@npm:^10.18.0":
-  version: 10.18.0
-  resolution: "framer-motion@npm:10.18.0"
-  dependencies:
-    "@emotion/is-prop-valid": "npm:^0.8.2"
-    tslib: "npm:^2.4.0"
-  peerDependencies:
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  dependenciesMeta:
-    "@emotion/is-prop-valid":
-      optional: true
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: 10c0/0aea1b3dc5cf06687e31f3b6c0b6b1a2cd070afdd4a9d38ebf15715c662ca1d6d1c25e6778695e5ebff37a6ce92b031d036c02570370e6057e66aa9de9f9370f
-  languageName: node
-  linkType: hard
-
 "fs-minipass@npm:^3.0.0":
   version: 3.0.3
   resolution: "fs-minipass@npm:3.0.3"
@@ -3206,6 +3121,13 @@ __metadata:
   version: 1.4.0
   resolution: "graphemer@npm:1.4.0"
   checksum: 10c0/e951259d8cd2e0d196c72ec711add7115d42eb9a8146c8eeda5b8d3ac91e5dd816b9cd68920726d9fd4490368e7ed86e9c423f40db87e2d8dfafa00fa17c3a31
+  languageName: node
+  linkType: hard
+
+"gsap@npm:3.15.0":
+  version: 3.15.0
+  resolution: "gsap@npm:3.15.0"
+  checksum: 10c0/5d86de72cb0bd6b20502c34c329a83a7d679979731bb465164407b7a5225aa61d612beee740eea36258622897c116cd2ca35320d530b7cf68bad62522361fcf7
   languageName: node
   linkType: hard
 
@@ -3970,6 +3892,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lenis@npm:1.3.27":
+  version: 1.3.27
+  resolution: "lenis@npm:1.3.27"
+  peerDependencies:
+    "@nuxt/kit": ">=3.0.0"
+    react: ">=17.0.0"
+    vue: ">=3.0.0"
+  peerDependenciesMeta:
+    "@nuxt/kit":
+      optional: true
+    react:
+      optional: true
+    vue:
+      optional: true
+  checksum: 10c0/ce9dfc765727ef75f96433652bc02013e14e51dd0626b66c6ea26b367bb481931857585b1251c44498d89679961cf5232782c24bdfc04e06118adfceec6783d1
+  languageName: node
+  linkType: hard
+
 "levn@npm:^0.4.1":
   version: 0.4.1
   resolution: "levn@npm:0.4.1"
@@ -4009,13 +3949,6 @@ __metadata:
   dependencies:
     p-locate: "npm:^5.0.0"
   checksum: 10c0/d3972ab70dfe58ce620e64265f90162d247e87159b6126b01314dd67be43d50e96a50b517bce2d9452a79409c7614054c277b5232377de50416564a77ac7aad3
-  languageName: node
-  linkType: hard
-
-"lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 10c0/fb407355f7e6cd523a9383e76e6b455321f0f153a6c9625e21a8827d10c54c2a2341bd2ae8d034358b60e07325e1330c14c224ff582d04612a46a4f0479ff2f2
   languageName: node
   linkType: hard
 
@@ -4740,16 +4673,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postprocessing@npm:^6.32.1":
-  version: 6.36.4
-  resolution: "postprocessing@npm:6.36.4"
-  peerDependencies:
-    three: ">= 0.157.0 < 0.171.0"
-  checksum: 10c0/14576de8062ea7102971fb7641880480e9c67aff636767698211093e56e8454c01f050e1c4d910f645bee0eccb14413db23057e5d3754185a36d902619e59b9d
-  languageName: node
-  linkType: hard
-
-"postprocessing@npm:^6.39.2":
+"postprocessing@npm:^6.32.1, postprocessing@npm:^6.39.2":
   version: 6.39.2
   resolution: "postprocessing@npm:6.39.2"
   peerDependencies:
@@ -4851,13 +4775,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10c0/33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
-  languageName: node
-  linkType: hard
-
-"react-merge-refs@npm:^2.0.1":
-  version: 2.1.1
-  resolution: "react-merge-refs@npm:2.1.1"
-  checksum: 10c0/b68cbc4ea51fd96f77247733388738630769d928f32958e63262ce43dff10c6b20f18a0483c6a640a1ffba48f32be26059d4ee9711881cacc63297b01311c8f6
   languageName: node
   linkType: hard
 
@@ -5740,23 +5657,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"three-stdlib@npm:^2.23.4":
-  version: 2.34.0
-  resolution: "three-stdlib@npm:2.34.0"
-  dependencies:
-    "@types/draco3d": "npm:^1.4.0"
-    "@types/offscreencanvas": "npm:^2019.6.4"
-    "@types/webxr": "npm:^0.5.2"
-    draco3d: "npm:^1.4.1"
-    fflate: "npm:^0.6.9"
-    potpack: "npm:^1.0.1"
-  peerDependencies:
-    three: ">=0.128.0"
-  checksum: 10c0/31927b9fd1e95907d9f11810a9b36119e21c6e0e0bcaf438c3ab944582e531153cc38984db97d10ba104d8cefc34d5fc046ec4be84e5b5e3a378ab2058e9ad18
-  languageName: node
-  linkType: hard
-
-"three-stdlib@npm:^2.35.6":
+"three-stdlib@npm:^2.23.4, three-stdlib@npm:^2.35.6":
   version: 2.36.1
   resolution: "three-stdlib@npm:2.36.1"
   dependencies:
@@ -5851,13 +5752,6 @@ __metadata:
   version: 0.1.13
   resolution: "ts-interface-checker@npm:0.1.13"
   checksum: 10c0/232509f1b84192d07b81d1e9b9677088e590ac1303436da1e92b296e9be8e31ea042e3e1fd3d29b1742ad2c959e95afe30f63117b8f1bc3a3850070a5142fea7
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.4.0":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
   languageName: node
   linkType: hard
 
@@ -6117,12 +6011,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "vador@workspace:."
   dependencies:
+    "@gsap/react": "npm:2.1.2"
     "@react-three/drei": "npm:^9.122.0"
     "@react-three/fiber": "npm:^8.18.0"
     "@react-three/postprocessing": "npm:^2.19.1"
-    "@theatre/core": "npm:^0.7.2"
-    "@theatre/r3f": "npm:^0.7.2"
-    "@theatre/studio": "npm:^0.7.2"
     "@types/howler": "npm:^2.2.13"
     "@types/react": "npm:^18.3.31"
     "@types/react-dom": "npm:^18.3.7"
@@ -6135,9 +6027,9 @@ __metadata:
     eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-react-hooks: "npm:^4.6.2"
     eslint-plugin-react-refresh: "npm:^0.4.20"
-    framer-motion: "npm:^10.18.0"
-    framer-motion-3d: "npm:^10.18.0"
+    gsap: "npm:3.15.0"
     howler: "npm:^2.2.4"
+    lenis: "npm:1.3.27"
     postcss: "npm:^8.5.19"
     postprocessing: "npm:^6.39.2"
     react: "npm:^18.3.1"
