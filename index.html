@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/vador.png" />
+    <link rel="icon" type="image/png" href="/src/assets/vador.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Darth Vader</title>
+    <meta name="theme-color" content="#050505" />
+    <meta
+      name="description"
+      content="VADER — Anatomy of a Fall. A scroll-driven WebGL tragedy in seven acts: the rise, fall and redemption of Anakin Skywalker."
+    />
+    <title>VADER — Anatomy of a Fall</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>
+    <div id="hotspot-layer" style="position:fixed;inset:0;z-index:20;pointer-events:none"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
