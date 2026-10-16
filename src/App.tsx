@@ -1,62 +1,61 @@
-import { Suspense, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { ScrollControls, Scroll } from "@react-three/drei";
-import { SheetProvider } from "@theatre/r3f";
-import { getProject } from "@theatre/core";
-import { ACESFilmicToneMapping, SRGBColorSpace } from "three";
-import { Loader, Scene } from "./component/canvas";
-import VadorState from "./Vador.json";
-import {
-  AudioControl,
-  ChapterRail,
-  Cursor,
-  Overlay,
-  ScrollProgressBridge,
-  StoryProgress,
-} from "./component/overlay";
-import { TOTAL_STORY_PAGES } from "./constants";
+import { useEffect } from "react";
+import { initSmoothScroll } from "./core/smoothScroll";
+import { ScrollTrigger } from "./core/gsap";
+import { Stage } from "./gl/Stage";
+import { StageBoundary } from "./gl/StageBoundary";
+import { Cursor } from "./ui/Cursor";
+import { Hud } from "./ui/Hud";
+import { Menu } from "./ui/Menu";
+import { ActTransition } from "./ui/ActTransition";
+import { Preloader } from "./ui/Preloader";
+import { Prologue } from "./sections/Prologue";
+import { Origins } from "./sections/Origins";
+import { Discovery } from "./sections/Discovery";
+import { Prodigy } from "./sections/Prodigy";
+import { Fall } from "./sections/Fall";
+import { Empire } from "./sections/Empire";
+import { Redemption } from "./sections/Redemption";
+import { Legacy } from "./sections/Legacy";
 
-const vadorSheet = getProject("Vador Project", {
-  state: VadorState,
-}).sheet("Vador Sheet");
-
-function App() {
-  const [started, setStarted] = useState(false);
+export default function App() {
+  useEffect(() => {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+    initSmoothScroll();
+    document.fonts.ready.then(() => ScrollTrigger.refresh());
+  }, []);
 
   return (
-    <section className="relative overscroll-none w-screen h-screen bg-void">
-      <Loader started={started} setStarted={setStarted} />
+    <>
+      <StageBoundary>
+        <Stage />
+      </StageBoundary>
 
-      <Canvas
-        shadows
-        dpr={[1, 1.5]}
-        gl={{
-          logarithmicDepthBuffer: true,
-          antialias: false,
-          toneMapping: ACESFilmicToneMapping,
-          toneMappingExposure: 1.05,
-          outputColorSpace: SRGBColorSpace,
-        }}
-      >
-        {/* Background / fog owned by Scene — avoid duplicate lights here */}
-        <ScrollControls pages={TOTAL_STORY_PAGES} damping={0.5} maxSpeed={1}>
-          <ScrollProgressBridge />
-          <SheetProvider sheet={vadorSheet}>
-            <Suspense>{started && <Scene />}</Suspense>
-          </SheetProvider>
-          <Scroll html>{started && <Overlay />}</Scroll>
-        </ScrollControls>
-      </Canvas>
+      <main className="relative z-10">
+        <Prologue />
+        <Origins />
+        <Discovery />
+        <Prodigy />
+        <Fall />
+        <Empire />
+        <Redemption />
+        <Legacy />
+      </main>
 
-      <div className="film-grain" aria-hidden />
-      <div className="film-vignette" aria-hidden />
-
-      <StoryProgress visible={started} />
-      <ChapterRail visible={started} />
+      <Hud />
+      <Menu />
+      <ActTransition />
+      <Preloader />
       <Cursor />
-      <AudioControl started={started} />
-    </section>
+      <div className="grain" aria-hidden />
+
+      {/* Shared SVG filter for the holo-warp image hover */}
+      <svg width="0" height="0" className="absolute" aria-hidden>
+        <filter id="holo-warp" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.04" numOctaves="2" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="0" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+    </>
   );
 }
-
-export default App;
