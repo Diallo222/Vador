@@ -125,7 +125,7 @@ export function Preloader() {
 
         <div className="flex flex-col items-center">
           <p className="hud mb-6">Decrypting the life of</p>
-          <h1 className="font-jedi text-[18vw] leading-[0.8] text-bone sm:text-[12vw]">Vader</h1>
+          <p className="font-jedi text-[18vw] leading-[0.8] text-bone sm:text-[12vw]">Vader</p>
 
           <div className="mt-10 flex w-[min(520px,80vw)] items-center gap-3">
             <div className="h-[10px] w-14 shrink-0 rounded-[2px] bg-gradient-to-r from-[#3a3a3a] via-[#9a9a9a] to-[#4a4a4a]" />

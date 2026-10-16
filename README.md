@@ -4,7 +4,7 @@
 
 The whole story is told through **one object, the mask**. Scroll and the helmet burns into ash. The ash becomes Tatooine sand and then Force motes. Anakin takes shape out of the dust, and Vader takes shape out of fire. A lightsaber seam splits the frame between light and dark, and you can drag it. Vader dissolves into light, and the helmet comes back one last time with a different name behind it.
 
-> **Live demo:** https://darthvador.netlify.app · **Repo:** [Diallo222/Vador](https://github.com/Diallo222/Vador)
+> **Live demo:** https://vador-rho.vercel.app · **Repo:** [Diallo222/Vador](https://github.com/Diallo222/Vador)
 
 <br />
 
@@ -54,6 +54,7 @@ Creative docs: [Concept](./docs/redesign/CONCEPT.md) · [Plan](./docs/redesign/P
 | **Motion** | GSAP 3.15 (ScrollTrigger, SplitText, ScrambleText, CustomEase), Lenis smooth scroll |
 | **Audio** | Howler (breath loop) + hand-rolled WebAudio saber synth |
 | **Look** | Tailwind CSS · Anton · Instrument Serif · Inter Tight · JetBrains Mono · Moonhouse |
+| **Hosting** | [Vercel](https://vador-rho.vercel.app) · Web Analytics |
 
 ---
 

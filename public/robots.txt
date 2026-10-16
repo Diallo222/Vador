@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vador-rho.vercel.app/sitemap.xml
